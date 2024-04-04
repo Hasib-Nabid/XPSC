@@ -44,11 +44,10 @@ int main()
     {
         ll n, q;
         cin >> n >> q;
-        int a[n], pre[n];
-        for (int i = 0; i < n; i++)
-            cin >> a[i];
-        pre[0] = a[0];
-        for (int i = 1; i < n; i++)
+        ll a[n+1], pre[n+1];
+        for (ll i = 1; i <= n; i++)  cin >> a[i];
+        pre[1] = a[1];
+        for (ll i = 2; i <= n; i++)
         {
             pre[i] = pre[i - 1] + a[i];
         }
@@ -56,12 +55,11 @@ int main()
         {
             ll l, r, k;
             cin >> l >> r >> k;
-            l--, r--;
             ll sum = 0;
-            if (l == 0) sum = pre[r];
+            if (l == 1) sum = pre[r];
             else sum = pre[r] - pre[l - 1];
-            ll sum = pre[n - 1] - sum + (k * (r - l + 1));
-            if (sum % 2 == 1)  yes;
+            ll ans = pre[n] - sum + (k * (r - l + 1));
+            if (ans % 2 == 1)  yes;
             else no;
         }
     }
