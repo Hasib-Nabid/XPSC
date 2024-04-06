@@ -31,34 +31,16 @@ int32_t main ()
     w(t){
         int n;
         cin>>n;
-        vector<string>v(n);
-        set<string>s;
-        loop(i,n) {
-            cin>>v[i];
-            s.insert(v[i]);
-        }
-        
-        string ss="";
-        for(int i=0;i<n;i++){
-        string t=v[i];
-        bool flag=false;
-            int size=t.size();
-            for(int j=1;j<size;j++){
-               string temp1=t.substr(0,j);
-               string temp2=t.substr(j);
-               if(s.count(temp1) and s.count(temp2)){
-                flag=true;
-                ss+='1';
-                break;
-               }
-            // cout<<temp1<<endl;
-            // cout<<temp2<<endl;
+        map<int,int>m;
+        vector<vector<int>>v(n,vector<int>(n-1));
+        loop(i,n){
+            loop(j,n-1){
+            cin>>v[i][j];
+            m[v[i][j]]++;
             }
-         //  cout<<endl;
-           if(!flag) ss+='0';
         }
-
-cout<<ss<<endl;
+   
+        
     }
 
     return 0;

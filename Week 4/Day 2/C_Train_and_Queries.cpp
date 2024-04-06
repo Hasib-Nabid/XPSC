@@ -29,36 +29,26 @@ int32_t main ()
 
     nabidtheboss();
     w(t){
-        int n;
-        cin>>n;
-        vector<string>v(n);
-        set<string>s;
+        int n,q;
+        cin>>n>>q;
+        int a[n];
+        map<int,vector<int>>m;
         loop(i,n) {
-            cin>>v[i];
-            s.insert(v[i]);
+            cin>>a[i];
+            m[a[i]].push_back(i);
         }
-        
-        string ss="";
-        for(int i=0;i<n;i++){
-        string t=v[i];
-        bool flag=false;
-            int size=t.size();
-            for(int j=1;j<size;j++){
-               string temp1=t.substr(0,j);
-               string temp2=t.substr(j);
-               if(s.count(temp1) and s.count(temp2)){
-                flag=true;
-                ss+='1';
-                break;
-               }
-            // cout<<temp1<<endl;
-            // cout<<temp2<<endl;
+        while(q--){
+            int a,b;
+            cin>>a>>b;
+            if(m[a].empty() or m[b].empty()){
+                no;
             }
-         //  cout<<endl;
-           if(!flag) ss+='0';
+            else if(m[a].front()<m[b].back()){
+                yes;
+            }
+            else no;
         }
 
-cout<<ss<<endl;
     }
 
     return 0;
