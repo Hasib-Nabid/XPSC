@@ -35,13 +35,31 @@ int32_t main ()
         vector<vector<int>>v(n,vector<int>(n-1));
         loop(i,n){
             loop(j,n-1){
-            cin>>v[i][j];
-            m[v[i][j]]++;
+            cin>>v[i][j];  
             }
         }
-   
-        
-    }
 
+          for(int i=0;i<n;i++) {
+            m[v[i][0]]++;
+        }
+        
+        int val;
+        for(auto u:m){
+            if(u.second>1){
+                val=u.first;
+                break;
+            }
+        }
+       
+         loop(i,n){
+            if(v[i][0]!=val) {
+                cout<<val<<" ";
+                loop(j,n-1){
+                    cout<<v[i][j]<<" ";
+                }
+            }
+        }
+        cout<<endl;
+    }
     return 0;
 }
