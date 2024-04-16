@@ -33,22 +33,24 @@ int32_t main ()
         cin>>n>>k;
         vi v(n);
         loop(i,n) cin>>v[i];
-        int l=0,r=0,cnt=0,ans=v[0];
-        while(r<n and l<n){
-            int ans=ans | v[r];
+        int l=0,r=0,cnt=0,ans=0;
+
+        while(r<n){
+            if(v[r]%2){
+                cnt++;
+            }
             if(r-l+1==k){
-                if(ans%2){
-                    cnt++;
+                if(cnt>0){
+                    ans++;
                 }
-                ans^=v[l];
-                l++;
-                r++;
+             if(v[l]%2) {
+                cnt--;
+             }
+             l++;
             }
-            else{
-                r++;
-            }
+           r++;
         }
-        cout<<cnt<<endl;
+        cout<<ans<<endl;
     }
 
     return 0;
