@@ -35,45 +35,44 @@ const double PI = acos(-1);
 
 int32_t main()
 {
-
     nabidtheboss();
+
     int n, m, k;
     cin >> n >> m >> k;
-    vector<int> v(m + 1);
-    for(int i=0;i<=m;i++) cin >> v[i];
+
+    vector<int> a(m + 1);
+    for (int i = 0;i <= m;i++) {
+        cin >> a[i];
+    }
 
     vector<vector<int>> binary;
-
-    for (int i = 0; i <= m; i++)
-    {
-        vector<int> tmp;
-        for (int k = 0; k < n; k++)
-        {
-            if (v[i] >> k & 1)
-            {
-                tmp.push_back(1);
+    for (int i = 0;i <= m;i++) {
+        vector<int> v;
+        for (int k = 0;k < n;k++) {
+            if ((a[i] >> k) & 1) {
+                v.push_back(1);
             }
-            else
-                tmp.push_back(0);
+            else {
+                v.push_back(0);
+            }
         }
         binary.push_back(v);
     }
-
-    vi fedor = binary.back();
-    int cnt = 0, ans = 0;
-    for (int i = 0; i < binary.size()-1; i++)
-    {
-        vi temp = binary[i];
-        for (int k = 0; k < n; k++)
-        {
-            if (temp[k] != fedor[k])
-            {
+  int ans = 0;
+    vector<int> fedor = binary[m];
+    for (int i = 0;i < binary.size() - 1;i++) {
+        vector<int> v = binary[i];
+        int cnt = 0;
+        for (int k = 0;k < n;k++) {
+            if (fedor[k] != v[k]) {
                 cnt++;
             }
         }
-        if (cnt <= k)
+        if (cnt <= k) {
             ans++;
+        }
     }
+
     cout << ans << endl;
     return 0;
 }
