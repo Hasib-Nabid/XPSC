@@ -61,7 +61,7 @@ int32_t main()
 
     vi fedor = binary.back();
     int cnt = 0, ans = 0;
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < binary.size()-1; i++)
     {
         vi temp = binary[i];
         for (int k = 0; k < n; k++)
