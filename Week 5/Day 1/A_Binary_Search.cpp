@@ -28,26 +28,32 @@ int32_t main ()
 {
 
     nabidtheboss();
-
-    int x,q;
-    cin>>x>>q;
-    vi a(x);
+    int x,y;
+    cin>>x>>y;
+    vi a(x),b(y);
     loop(i,x) cin>>a[i];
 
-   while(q--){
-    int k;
-    cin>>k;
-   int l=0,r=x-1,ans=x;
+    loop(i,y){ 
+          int l=0,r=x-1,ans=-1;
+        cin>>b[i];
+
    while(l<=r){
     int mid=(l+r)/2;
-    if(a[mid]>=k){
+    if(a[mid]==b[i]){
         ans=mid;
-        r=mid-1;
+        break;
     }
-    else l=mid+1;
+    else if(b[i]>a[mid]){
+        l=mid+1;
+    }
+    else{
+         r=mid-1;
+    }
    }
 
-   cout<<ans+1<<endl;
-   }
+   if(ans!=-1) yes;
+   else no;
+    }
+
     return 0;
 }
