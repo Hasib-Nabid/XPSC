@@ -29,7 +29,7 @@ int32_t main ()
 
     nabidtheboss();
    w(t){
-     int n,OR=0,AND=-1;;
+     int n,OR=0,AND=-1;
     cin>>n;
     vi v(n);
     loop(i,n){
