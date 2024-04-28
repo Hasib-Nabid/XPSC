@@ -29,36 +29,14 @@ int32_t main ()
 
     nabidtheboss();
     w(t){
-        string s;
-        cin>>s;
-
-        int mn=min(s[0],s.back());
-        int mx=max(s[0],s.back());
-
-        vector<pair<char,int>>v;
-    for(int i=0;i<sz(s);i++){
-        if(s[i]>=mn and s[i]<=mx){
-            v.push_back({s[i],i+1});
-        }
-    }
-        int cost=mx-mn;
-    if(s[0]==mn){
-    sort(v.begin()+1,v.end()-1);
-
-    cout<<cost<<" "<<v.size()<<endl;
-    for(auto u:v){
-        cout<<u.second<<" ";
-    }
-    }
-    else {
-        sort(v.rbegin()+1,v.rend()-1);
-    cout<<cost<<" "<<v.size()<<endl;
-    for(auto u:v){
-        cout<<u.second<<" ";
-    }
-    }
-
-    shesh;
+        int n;
+		cin >> n;
+		long long cur = 0;
+		for (int i = 0; i < n; ++i) {
+			long long x; cin >> x;
+			cur = max(0LL, cur + x);
+		}
+		cout << cur << endl;
     }
 
     return 0;
