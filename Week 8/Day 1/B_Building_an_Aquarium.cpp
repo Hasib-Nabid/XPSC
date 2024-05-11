@@ -48,7 +48,7 @@ int32_t main ()
         else return false;
         };
 
-    int l = 1, r = 1e18, mid, ans = 1;
+    int l = 1, r = 1e12, mid, ans = 1;
 
     while (l <= r)
     {
