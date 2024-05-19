@@ -28,13 +28,20 @@ int32_t main ()
 {
 
     nabidtheboss();
-    int x;
-    cin >> x;
-    int ans = 1;
-   for (int i = 1; i * i <= x; ++i)
-        if (x % i == 0 && gcd(i, x / i) == 1)
-            ans = i;
-    cout << ans << " " << x / ans << endl;
-    return 0;
+    int n;
+    cin>>n;
+    vi v(n);
+    loop(i,n) cin>>v[i];
+
+    int c=0;
+
+    for(int i=1;i<n;i++){
+        if(v[i]>=v[i-1]) continue;
+        else{
+            c+=(v[i-1]-v[i]);
+            v[i]=v[i-1];
+        }
     }
-    
+cout<<c<<endl;
+    return 0;
+}

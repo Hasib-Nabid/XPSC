@@ -28,13 +28,39 @@ int32_t main ()
 {
 
     nabidtheboss();
-    int x;
-    cin >> x;
-    int ans = 1;
-   for (int i = 1; i * i <= x; ++i)
-        if (x % i == 0 && gcd(i, x / i) == 1)
-            ans = i;
-    cout << ans << " " << x / ans << endl;
-    return 0;
+    string s,t="",odd="",ans="";
+    cin>>s;
+    map<char,int>m;
+    int cnt=0;
+    for(auto u:s) m[u]++;
+    for(auto [x,y]:m) {
+        if(y & 1) cnt++;
     }
-    
+
+if(cnt>1)  cout<<"NO SOLUTION"<<endl;
+
+    else{
+        for(auto [x,y]:m) {
+            int k=y;
+        if(y%2==0){
+            while( k>(y/2)){
+                t+=x;
+                --k;
+            }
+        }
+        else {
+            while(y){
+                odd+=x;
+                --y;
+            }
+    }
+    }
+   ans+=t;
+   ans+=odd;
+   reverse(all(t));
+   ans+=t;
+   cout<<ans<<endl;
+    }
+
+    return 0;
+}
